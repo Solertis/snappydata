@@ -344,7 +344,7 @@ final class ColumnFormatValue
             // processors like gateway event processors will not expect it.
         }
       }
-      ColumnFormatEntry.VALUE_EMPTY_BUFFER
+      ColumnFormatEntry.VALUE_EMPTY_BUFFER.duplicate()
     }
   }
 
