@@ -73,7 +73,6 @@ abstract class BaseColumnFormatRelation(
     with PartitionedDataSourceScan
     with RowInsertableRelation {
 
-
   override def toString: String = s"${getClass.getSimpleName}[$table]"
 
   override val connectionType: ConnectionType.Value =
@@ -171,7 +170,6 @@ abstract class BaseColumnFormatRelation(
     }
     (zipped, Nil)
   }
-
 
   def buildUnsafeScanForSampledRelation(requiredColumns: Array[String],
       filters: Array[Filter]): (RDD[Any], RDD[Any],
@@ -330,8 +328,9 @@ abstract class BaseColumnFormatRelation(
 //            }
             return
           case SaveMode.ErrorIfExists =>
+            throw new TableNotFoundException(s"Table '$table' not found")
             // sys.error(s"Table $table already exists.") TODO: Why so?
-            return
+            // return
           case _ => // Ignore
         }
       }
@@ -353,7 +352,6 @@ abstract class BaseColumnFormatRelation(
       externalStore: ExternalStore): Unit = {
     require(tableName != null && tableName.length > 0,
       "createExternalTableForColumnBatches: expected non-empty table name")
-
 
     val (primaryKey, partitionStrategy, concurrency) = dialect match {
       // The driver if not a loner should be an accessor only
@@ -524,7 +522,6 @@ class ColumnFormatRelation(
       tableRelation: JDBCAppendableRelation,
       indexColumns: Map[String, Option[SortDirection]],
       options: Map[String, String]): DataFrame = {
-
 
     val parameters = new CaseInsensitiveMutableHashMap(options)
     val snappySession = sqlContext.sparkSession.asInstanceOf[SnappySession]
