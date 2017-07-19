@@ -40,7 +40,7 @@ class UserDefinedFunctionsDUnitTest(val s: String)
     super.tearDown2()
   }
 
-  def testDriverHA(): Unit = {
+  def _testDriverHA(): Unit = {
     // Stop the lead node
     ClusterManagerTestBase.stopSpark()
 
