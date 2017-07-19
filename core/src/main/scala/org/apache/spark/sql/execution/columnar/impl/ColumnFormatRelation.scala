@@ -310,6 +310,8 @@ abstract class BaseColumnFormatRelation(
   }
 
   override def createTable(mode: SaveMode): Unit = {
+    sqlContext.sparkSession.sessionState.catalog
+      .asInstanceOf[SnappyStoreHiveCatalog].invalidateAll()
     val conn = connFactory()
     try {
       tableExists = JdbcExtendedUtils.tableExists(table, conn,
