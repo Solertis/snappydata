@@ -1,0 +1,57 @@
+  io/snappydata/hydra/security/userAuthnAuthzWithSmartConnTest.conf
+      A=snappyStore snappyStoreHosts=2 snappyStoreVMsPerHost=1 snappyStoreThreadsPerVM=1
+      B=lead leadHosts=1 leadVMsPerHost=1 leadThreadsPerVM=2
+      C=locator locatorHosts=1 locatorVMsPerHost=1 locatorThreadsPerVM=1
+      D=worker workerHosts=1 workerVMsPerHost=1 workerThreadsPerVM=1
+      dataFilesLocation="$GEMFIRE/../../../tests/common/src/main/resources/northwind/"
+      dataLocation = "$GEMFIRE/../../../dtests/src/resources/scripts/security/runQuery_Col.sql"
+      tableType="Column"
+/*io/snappydata/hydra/security/clusterAuthnOpsAuthzWithJdbcClientTest.conf
+  A=snappyStore snappyStoreHosts=2 snappyStoreVMsPerHost=1 snappyStoreThreadsPerVM=1
+  B=lead leadHosts=1 leadVMsPerHost=1 leadThreadsPerVM=1
+  C=locator locatorHosts=1 locatorVMsPerHost=1 locatorThreadsPerVM=1
+  D=client clientHosts=1 clientVMsPerHost=1 clientThreadsPerVM=1
+  dataFilesLocation="$GEMFIRE/../../../tests/common/src/main/resources/northwind/"
+  //queryLocation="$GEMFIRE/../../../tests/common/src/main/resources/security/"
+  dataLocation = "$GEMFIRE/../../../dtests/src/resources/scripts/security/runQuery_Col.sql"
+
+  io/snappydata/hydra/security/clusterAuthnGrantRevokeOpsWithJdbcClientTest.conf
+    A=snappyStore snappyStoreHosts=2 snappyStoreVMsPerHost=1 snappyStoreThreadsPerVM=1
+    B=lead leadHosts=1 leadVMsPerHost=1 leadThreadsPerVM=1
+    C=locator locatorHosts=1 locatorVMsPerHost=1 locatorThreadsPerVM=1
+    D=client clientHosts=1 clientVMsPerHost=1 clientThreadsPerVM=1
+    dataFilesLocation="$GEMFIRE/../../../tests/common/src/main/resources/northwind/"
+  //  queryLocation="$GEMFIRE/../../../tests/common/src/main/resources/security/"
+    dataLocation = "$GEMFIRE/../../../dtests/src/resources/scripts/security/runQuery_Col.sql"
+    dataLocationRow = "$GEMFIRE/../../../dtests/src/resources/scripts/security/runQuery_Row.sql"
+
+   io/snappydata/hydra/security/concUserAuthnWithServerHA.conf
+    A=snappyStore snappyStoreHosts=3 snappyStoreVMsPerHost=1 snappyStoreThreadsPerVM=1
+    B=lead leadHosts=1 leadVMsPerHost=1 leadThreadsPerVM=2
+    C=locator locatorHosts=1 locatorVMsPerHost=1 locatorThreadsPerVM=1
+    D=user1 user1Hosts=1 user1VMsPerHost=1 user1ThreadsPerVM=1
+    E=user2 user2Hosts=1 user2VMsPerHost=1 user2ThreadsPerVM=1
+    F=user3 user3Hosts=1 user3VMsPerHost=1 user3ThreadsPerVM=1
+    dataFilesLocation="$GEMFIRE/../../../tests/common/src/main/resources/northwind/"
+    dataLocation = "$GEMFIRE/../../../dtests/src/resources/scripts/security/runQuery_Col.sql"
+    numVMsToStop=1
+
+    /*io/snappydata/hydra/security/concUserAuthzWithLeadHA.conf
+    A=snappyStore snappyStoreHosts=2 snappyStoreVMsPerHost=1 snappyStoreThreadsPerVM=1
+    B=lead leadHosts=2 leadVMsPerHost=1 leadThreadsPerVM=1
+    C=locator locatorHosts=1 locatorVMsPerHost=1 locatorThreadsPerVM=1
+    D=client clientHosts=1 clientVMsPerHost=1 clientThreadsPerVM=1
+    dataFilesLocation="$GEMFIRE/../../../tests/common/src/main/resources/northwind/"
+    dataLocation = "$GEMFIRE/../../../dtests/src/resources/scripts/security/runQuery_Col.sql"
+    numVMsToStop=1
+
+
+io/snappydata/hydra/security/clusterStartAuthnOpsAuthzWithSmartConnTest.conf
+    A=snappyStore snappyStoreHosts=2 snappyStoreVMsPerHost=1 snappyStoreThreadsPerVM=1
+    B=lead leadHosts=1 leadVMsPerHost=1 leadThreadsPerVM=2
+    C=locator locatorHosts=1 locatorVMsPerHost=1 locatorThreadsPerVM=1
+    D=worker workerHosts=1 workerVMsPerHost=1 workerThreadsPerVM=1
+    dataFilesLocation="$GEMFIRE/../../../tests/common/src/main/resources/northwind/"
+    dataLocation = "$GEMFIRE/../../../dtests/src/resources/scripts/security/runQuery_Col.sql"
+    tableType="Column"
+*/
