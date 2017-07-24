@@ -1,0 +1,12 @@
+SELECT count(*) FROM user2.employees;
+SELECT count(*) FROM user2.categories;
+SELECT * FROM user2.categories;
+INSERT into user2.employees values(2,'empFirstName2','empLastName2','VicePresidentSales','Mrs.','1952-02-19 00:00:00.000','1992-08-14 00:00:00.000','908W.CapitalWay','Tacoma','WA','98401','USA','(206)555-9482',3457,'000');
+INSERT INTO user2.categories values(10,'Pulses','dalandsprouts','00');
+SELECT * FROM user2.customers;
+SELECT * FROM user2.orders;
+SELECT * from user2.suppliers;
+SELECT ProductID, AVG(UnitPrice) AS AveragePrice FROM user2.products GROUP BY ProductID HAVING AVG(UnitPrice) > 70 ORDER BY AveragePrice;
+INSERT into user2.customers values('custID4','abc','custName7','MarketingManager','aasdfasdfasd7','Strasbourg',NULL,'67000','France','88.60.15.31','88.60.15.32');
+INSERT into user2.orders values(10251,'AROUT',4,'1996-07-08 00:00:00.000','1996-08-05 00:00:00.000','1996-07-15 00:00:00.000',4,41.34,'Victuaillesenstock2','rueduCommerce','Lyon',NULL,'69004','France');
+INSERT into user2.order_details values(10253,41,7.7,10,0);
