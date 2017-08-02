@@ -1042,6 +1042,40 @@ task sparkPackage {
   dependsOn ":snappy-core_${scalaBinaryVersion}:sparkPackage"
 }
 
+task downloadApacheSparkDist(type: de.undercouch.gradle.tasks.download.Download) {
+  outputs.files "${sparkProductDir}.tgz"
+
+  src "http://archive.apache.org/dist/spark/spark-${sparkVersion}/${sparkDistName}.tgz"
+  dest sparkDistDir
+  onlyIfNewer true
+
+  doFirst {
+    mkdir(sparkDistDir)
+  }
+}
+
+task getApacheSparkDist {
+  dependsOn downloadApacheSparkDist
+
+  outputs.files "${sparkProductDir}.tgz", "${sparkProductDir}/README.md"
+
+  doLast {
+    if (osName.isWindows()) {
+      copy {
+        from tarTree(resources.gzip("${sparkDistDir}/${sparkDistName}.tgz"))
+        into sparkDistDir
+      }
+    } else {
+      // gradle tarTree does not preserve symlinks (GRADLE-2844)
+      exec {
+        executable 'tar'
+        args 'xzf', "${sparkDistName}.tgz"
+        workingDir = sparkDistDir
+      }
+    }
+  }
+}
+
 packagePulse.mustRunAfter product
 packageVSD.mustRunAfter product
 

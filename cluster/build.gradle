@@ -173,5 +173,6 @@ scalaTest {
     cleanIntermediateFiles(project.path)
   }
 }
+dunitSecurityTest.dependsOn getApacheSparkDist
 check.dependsOn test, scalaTest, dunitTest, dunitSecurityTest
 archivesBaseName = 'snappydata-cluster_' + scalaBinaryVersion
